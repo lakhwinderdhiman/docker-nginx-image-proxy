@@ -1,9 +1,10 @@
 FROM ubuntu:24.04 AS buildstep
 
 # Set environment variables
+
 ENV TERM=xterm container=docker DEBIAN_FRONTEND=noninteractive \
     NGINX_DEVEL_KIT_VERSION=0.3.3 NGINX_SET_MISC_MODULE_VERSION=0.33 \
-    NGINX_VERSION=1.26.2-1~noble_arm64.deb
+    NGINX_VERSION=1.24.0
 
 # Install required packages and nginx
 RUN apt-get update -y && \
