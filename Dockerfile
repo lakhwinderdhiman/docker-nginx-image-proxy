@@ -6,7 +6,7 @@ ENV TERM=xterm container=docker DEBIAN_FRONTEND=noninteractive \
     NGINX_DEVEL_KIT_VERSION=0.3.3 NGINX_SET_MISC_MODULE_VERSION=0.33 \
     NGINX_VERSION=1.24.0
 
-# Install required packages and nginx
+# Install required packages and specific version of nginx
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
     curl gnupg2 ca-certificates lsb-release && \
