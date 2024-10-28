@@ -35,9 +35,10 @@ ADD ./files/etc/ /etc/
 ADD ./files/root/ /root/
 ADD ./files/sbin/ /sbin/
 
-# Run necessary scripts and set up logs
+# Ensure necessary scripts are run and log folders are set up
 RUN bash /root/bin/dummycert.sh && \
     mkdir -p /app-start/etc && \
+    mkdir -p /var/log/nginx && \   # Ensure the log directory exists
     mv /etc/nginx /app-start/etc/nginx && \
     rm -rf /etc/nginx && \
     ln -s /app/etc/nginx /etc/nginx && \
@@ -45,6 +46,7 @@ RUN bash /root/bin/dummycert.sh && \
     mv /var/log/nginx /app-start/var/log/nginx && \
     rm -rf /var/log/nginx && \
     ln -s /app/var/log/nginx /var/log/nginx
+
 
 # Expose necessary ports and define volumes
 EXPOSE 80 443
