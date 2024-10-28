@@ -61,7 +61,7 @@ http {
     map $host $forward_scheme {
         default http;
     }
-
+    include                       /etc/nginx/cdn-ips.conf;
     # Wildcard include
     include                       /etc/nginx/sites-enabled/*.conf;
 }
